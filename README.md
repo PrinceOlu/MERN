@@ -1,2 +1,1 @@
-# MERN
-Full stack courses
+MERN fullstack
