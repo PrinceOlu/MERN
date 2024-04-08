@@ -8,8 +8,18 @@
     <title>Delicious Pancake Recipe</title>
   </head>
   <body>
-    <div>
-      <h2>Fluffy Pancakes</h2>
+    <p>
+      Content Insertion using Pseudo Elements Selectors <br />
+      - ::before, ::after, ::first-letter, ::|first-line, ::selection
+    </p>
+    <p>
+      before and after are used for adding icons, quotes, tooltips with hover,
+      symbols and labels
+    </p>
+    <br />
+    <hr />
+    <div id="recipe-card">
+      <h2 class="title">Fluffy Pancakes</h2>
 
       <div class="image">
         <img
@@ -19,12 +29,12 @@
         />
       </div>
 
-      <div>
-        <span>Prep time: 15 mins</span> |
-        <span>Cook time: 20 mins</span>
+      <div class="time-container">
+        <span class="time">Prep time: 15 mins</span> |
+        <span class="time">Cook time: 20 mins</span>
       </div>
 
-      <ul>
+      <ul class="ingredients">
         <h3>Ingredients:</h3>
         <li>Flour</li>
         <li>Sugar</li>
@@ -32,14 +42,20 @@
         <li>Milk</li>
       </ul>
 
-      <div>
+      <div class="steps-container">
         <h3>Instructions:</h3>
-        <p>1. Start by mixing all the dry ingredients in a bowl.</p>
-        <p>2. Whisk in the eggs and milk until you have a smooth batter.</p>
-        <p>3. Cook each side on medium heat until golden brown.</p>
+        <p class="steps">
+          1. Start by mixing all the dry ingredients in a bowl.
+        </p>
+        <p class="steps">
+          2. Whisk in the eggs and milk until you have a smooth batter.
+        </p>
+        <p class="steps">
+          3. Cook each side on medium heat until golden brown.
+        </p>
       </div>
 
-      <p>
+      <p class="note">
         Tip: Serve with fresh berries and maple syrup for added deliciousness!
       </p>
     </div>
