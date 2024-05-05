@@ -55,18 +55,19 @@
         width: 100%;
       }
     </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <!-- Mouse Events -->
     <button onclick="clickHandler()">Click Me</button>
     <button ondblclick="dbClickHandler()">Double Click Me</button>
-    <div onmouseover="onMouseOverHandler()" onmouseout="onMouseOutHandler()">
+    <div onmouseover="onmouseoverHandler()" onmouseout="onmouseoutHandle()">
       Hover over me!
     </div>
 
     <!-- Keyboard Events -->
     <input
-      onkeydown="onkeydownHandler()"
+      onkeydown="onkeydownHandle()"
       onkeyup="onkeyupHandler()"
       onkeypress="onkeypressHandler()"
       type="text"
@@ -74,10 +75,9 @@
     />
 
     <!-- Form Events -->
-    <form onsubmit="onsubmitHandler()">
-      <input onfocus="onfocusHandler()" onblur="onblurHandler()" type="text" />
+    <form onsubmit="onsubmitHandle()">
+      <input onfocus="onfocusHandle()" onblur="onblurHandle()" type="text" />
       <button type="submit">Submit</button>
     </form>
-    <script src="script.js"></script>
   </body>
 </html>
