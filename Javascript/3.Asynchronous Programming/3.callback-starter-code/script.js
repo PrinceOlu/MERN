@@ -1,5 +1,6 @@
 // create a callback function
 // ===== basic method 1============
+
 // function simpleFunction() {
 //   console.log("sample simple callBack function ");
 // }
@@ -28,7 +29,6 @@
 // passCallBack(() => {
 //   return "this is a callBack return ";
 // });
-
 // Extracting callBak function
 // function passCallBack(simpleFunction) {
 //   // call the function as a callback
@@ -40,23 +40,24 @@
 // });
 
 // passing parameters to a callback function
-
-// const simpleFunction = (callBackunction) => {
-//   const result = callBackunction("Segun", "Ojugbele");
-//   console.log(result);
-// };
-// // callback wit arguements
-// const callBackunction = (firstname, lastname) => {
+// callback with arguements
+// const simpleFunction = (firstname, lastname) => {
 //   return `Hello ${firstname} ${lastname}`;
 // };
-// simpleFunction(callBackunction);
+
+// const callBackunction = (simpleFunction) => {
+//   const result = simpleFunction("Segun", "Ojugbele");
+//   console.log(result);
+// };
+
+// callBackunction(simpleFunction);
 
 // Simple function with parameter and callback function
 
-const calcSum = (a, b, callback) => {
-  const result = a + b;
-  callback(result);
-};
-calcSum(2, 3, (result) => {
-  console.log(result);
-});
+// const calcSum = (a, b, callback) => {
+//   const result = a + b;
+//   callback(result);
+// };
+// calcSum(2, 3, (result) => {
+//   console.log(result);
+// });
