@@ -1,54 +1,60 @@
-const url = "https://jsonplaceholder.typicode.com/posts";
+// ======== for free APIs=======
+//  https://rapidapi.com/hub
+//  https://jsonplaceholder.typicode.com/
 
-// Create a new instance of XMLHttpRequest
+// let us use the API URL
+const url = "https://jsonplaceholder.typicode.com/todos";
 
-const xhr = new XMLHttpRequest();
+// fetch method using Promise based
+// steps
+// 1) create the fetch function
+// 2) bring in the fetch Method and pass the URL
+// 3) add .then to convert it to a promise
+// 4) we return a promise in json format
+// 5) chain the data to the result to get the actual data
+// 6) catch the error
 
-//Configure the request
-xhr.open("GET", url, true);
+// create the fetch function
+// const fetchData = () => {
+//   // bring in the fetch Method and pass the URL
+//   fetch(url)
+//     // add .then to convert it to a promise
+//     .then((result) => {
+//       // we return a promise in json format
+//       return result.json();
+//     })
+//     // chain the data to the result to get the actual data
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     // catch the error
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+// fetchData();
 
-//Attach an event listener to handle changes in the request state
+// fetch method using async/await
+// steps
+// 1) create a function
+// 2) use try catch
+// 3) lets wait for the promise using the fetch method
+// 4) return the data as a promise
+// 5) lets consume the promise as a data using .then
 
-xhr.onreadystatechange = function () {
-  //Check if the request is complete (readyState 4) and successful (status 200)
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    //parse the json data
-    console.log(JSON.parse(xhr.responseText));
-  }
-  //Handle errors
-  if (xhr.readyState === 4 && xhr.status !== 200) {
-    console.log(xhr.statusText);
-  }
-};
-
-//send the reques
-// xhr.send();
-
-//Using Promise based
-const fetchData = () => {
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => console.log(error));
-};
-
-//fetchData();
-
-//Using async await
-
-const fetchData2 = async () => {
+// create a function
+const fetchData = async () => {
+  // use try catch
   try {
+    // lets wait for the promise using the fetch method
     const result = await fetch(url);
+    // return the data as a promise
     return result.json();
   } catch (error) {
     console.log(error);
   }
 };
-
-fetchData2().then((res) => {
-  console.log(res);
+// lets consume the promise as a data using .then
+fetchData().then((data) => {
+  console.log(data);
 });

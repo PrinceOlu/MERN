@@ -1,19 +1,21 @@
-async function randomOutcome() {
-  return new Promise((reslove, reject) => {
-    if (Math.random() > 0.5) {
-      reslove("Succcess");
+// creation
+const myRandom = async () => {
+  return new Promise((resolve, reject) => {
+    if (Math.random() < 5) {
+      resolve("Success");
     } else {
-      reject("failed");
+      reject("Failed");
     }
   });
-}
+};
 
-const handleOutcome = async () => {
+// usage
+const myValue = async () => {
   try {
-    const result = await randomOutcome();
+    const result = await myRandom();
     console.log(result);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
-handleOutcome();
+myValue();

@@ -1,37 +1,36 @@
-//First function returning a Promise
-
-function stepOnePromise() {
-  return new Promise((resolve) => {
-    resolve("Step 1 completed");
+// promise creation
+function firstPromise() {
+  // create a promse inside the function
+  return new Promise((resolved) => {
+    resolved(`first Promise resolved...`);
+  });
+}
+function secondPromise() {
+  // create a promse inside the function
+  return new Promise((resolved) => {
+    resolved(`second Promise resolved...`);
+  });
+}
+function thirdPromise() {
+  // create a promse inside the function
+  return new Promise((resolved) => {
+    resolved(`third Promise resolved...`);
   });
 }
 
-function stepTwoPromise() {
-  return new Promise((resolve) => {
-    resolve("Step 2 completed");
+// promise chaining
+firstPromise()
+  .then((resultfromPromise1) => {
+    console.log(resultfromPromise1);
+    return secondPromise();
+  })
+  .then((resultfromPromise2) => {
+    console.log(resultfromPromise2);
+    return thirdPromise();
+  })
+  .then((resultfromPromise3) => {
+    console.log(resultfromPromise3);
+  })
+  .catch((err) => {
+    console.log(err);
   });
-}
-
-function stepThreePromise() {
-  return new Promise((resolve) => {
-    resolve("Step 3 completed");
-  });
-}
-
-//Chaining
-//first promise
-stepOnePromise()
-  .then((resultFromP1) => {
-    console.log(resultFromP1);
-    //second promise
-    return stepTwoPromise();
-  })
-  .then((resultFromP2) => {
-    console.log(resultFromP2);
-    //third promise
-    return stepThreePromise();
-  })
-  .then((resultFromP3) => {
-    console.log(resultFromP3);
-  })
-  .catch((err) => console.log(err));

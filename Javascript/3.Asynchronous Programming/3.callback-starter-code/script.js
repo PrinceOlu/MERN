@@ -1,57 +1,64 @@
 // create a callback function
 // ===== basic method 1============
-
 // function simpleFunction() {
-//   console.log("sample simple callBack function ");
+//   console.log("sample simple callBack function");
 // }
-// // pass the function as a callBack
-// function passCallBack(simpleFunction) {
+
+// // pass the function as a callback
+// function passCallBack(callBack) {
 //   // call the function as a callback
-//   simpleFunction();
+//   callBack();
 // }
+// // pass simpleFunction as a callback
 // passCallBack(simpleFunction);
 
 // ==== more advance method 2 ======
-// function passCallBack(simpleFunction) {
-//   // call the function as a callback
-//   simpleFunction();
-// }
-// passCallBack(() => {
-//   console.log("this is an advance callback");
-// });
+
+// function passCallBack(callBack) {
+//     // call the function as a callback
+//     callBack();
+//   }
+//   passCallBack(() => {
+//     console.log("this is an advance callback");
+//   });
+
 // ==== more advance method 3 ======
 // returning a callback function
-// function passCallBack(simpleFunction) {
+// function passCallBack(callback) {
 //   // call the function as a callback
-//   simpleFunction();
-//   console.log(simpleFunction());
+//   callback();
+//   console.log(callback());
 // }
 // passCallBack(() => {
 //   return "this is a callBack return ";
 // });
-// Extracting callBak function
-// function passCallBack(simpleFunction) {
+// ====== more advance callback=======
+// Extracting callBack function as a variable
+// function passCallBack(callBack) {
 //   // call the function as a callback
-//   const result = simpleFunction();
+//   const result = callBack();
 //   console.log(result);
 // }
 // passCallBack(() => {
-//   return "this is a simple callBack return ";
+//   return "this is a more advance callBack return ";
 // });
 
 // passing parameters to a callback function
 // callback with arguements
+// =============== =====================
+// I have converted the function below into an anonymous function and passed it directly into the call back
+// ===================================
 // const simpleFunction = (firstname, lastname) => {
 //   return `Hello ${firstname} ${lastname}`;
 // };
 
-// const callBackunction = (simpleFunction) => {
-//   const result = simpleFunction("Segun", "Ojugbele");
-//   console.log(result);
-// };
-
-// callBackunction(simpleFunction);
-
+// function greetingCallback(callback) {
+//   callback();
+//   console.log(callback("segun", "ojugbele"));
+// }
+// greetingCallback((firstname, lastname) => {
+//   return `hello ${firstname} ${lastname}`;
+// });
 // Simple function with parameter and callback function
 
 // const calcSum = (a, b, callback) => {
