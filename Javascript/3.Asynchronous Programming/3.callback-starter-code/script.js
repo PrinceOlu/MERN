@@ -68,3 +68,10 @@
 // calcSum(2, 3, (result) => {
 //   console.log(result);
 // });
+// const calcSum = (a, b, callback) => {
+//   const result = a + b;
+//   callback(result);
+// };
+// calcSum(2, 3, (result) => {
+//   console.log(result);
+// });
