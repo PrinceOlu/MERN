@@ -1,5 +1,6 @@
 // create a callback function
 // ===== basic method 1============
+
 // function simpleFunction() {
 //   console.log("sample simple callBack function");
 // }
@@ -61,6 +62,13 @@
 // });
 // Simple function with parameter and callback function
 
+// const calcSum = (a, b, callback) => {
+//   const result = a + b;
+//   callback(result);
+// };
+// calcSum(2, 3, (result) => {
+//   console.log(result);
+// });
 // const calcSum = (a, b, callback) => {
 //   const result = a + b;
 //   callback(result);
