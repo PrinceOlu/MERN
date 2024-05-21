@@ -1,69 +1,65 @@
-// initialise expres
 const express = require("express");
-// create an intance of express
 const app = express();
-// create the port
 const PORT = 3000;
-// lets add a middle-ware to catch the post from the new book added
+// receiving data from postman when creating a new book using middle-ware
 app.use(express.json());
 
-// lets create a dummy db
+// Dummy book database
 const books = [
-  { id: "1", title: "Prince Book", author: "Prince" },
-  { id: "2", title: "Moyo Book", author: "Moyo" },
-  { id: "3", title: "Ade Book", author: "Ade" },
-  ];
-// lets create the home route
+  { id: 1, title: "My book 1", author: "Prince" },
+  { id: 2, title: "My book 2", author: "Prince 2" },
+  { id: 3, title: "My book 3", author: "Prince 3" },
+];
+
+// Home route
 app.get("/", (req, res) => {
   res.json({
-    status: "Succesful",
-    message: "Welcome to my home page",
-    data: "Prince",
+    status: "Success",
+    message: "Welcome to my API DEV class",
   });
 });
 
-// lets create all the book route
+// Fetch all books route
 app.get("/books", (req, res) => {
   res.json({
-    status: "Succesful",
-    message: "All books",
+    status: "Success",
+    message: "Books found...",
     data: books,
   });
 });
 
-// lets create a single book route
+// Fetch a single book by ID route
 app.get("/books/:id", (req, res) => {
-  const id = req.params.id;
-    const bookFound = books.find((book) => book.id === id);
+  const id = parseInt(req.params.id); // Convert id to number
+  const bookFound = books.find((book) => book.id === id);
+
   if (bookFound) {
-        res.json({
-      status: "Succesful",
-      message: "All books",
+    return res.json({
+      status: "Success",
+      message: "Book found...",
       data: bookFound,
     });
   } else {
-    res.json({
-      status: "Succesful",
-      message: "All books",
-      data: "Book not found",
-        });
+    return res.status(404).json({
+      status: "Failure",
+      message: "Book not found...",
+    });
   }
 });
-
-// lets add new book route
+// create a single book
 app.post("/books", (req, res) => {
-   // console.log(req.body);
-  const addBook = req.body;
-  books.push(addBook);
+  //   console.log(req.body);
+  const newBook = req.body;
+  //   lets push the new book into the existing array of books
+  books.push(newBook);
   res.json({
-    status: "Succesful",
-    message: "book added successfully",
-    data: addBook,
+    status: "Success",
+    message: "Book created successfully...",
+    data: books,
   });
 });
 
-// start the server
+// Start the server
 app.listen(PORT, () => {
- 
-  console.log("Server started...");
+  console.log(`Server is running on port number ${PORT}`);
 });
