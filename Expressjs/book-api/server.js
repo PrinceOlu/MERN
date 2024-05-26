@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 // create the port
 const PORT = 3000;
-
 // lets add a middle-ware to catch the post from the new book added
 app.use(express.json());
 
@@ -13,8 +12,7 @@ const books = [
   { id: "1", title: "Prince Book", author: "Prince" },
   { id: "2", title: "Moyo Book", author: "Moyo" },
   { id: "3", title: "Ade Book", author: "Ade" },
-];
-
+  ];
 // lets create the home route
 app.get("/", (req, res) => {
   res.json({
@@ -23,6 +21,7 @@ app.get("/", (req, res) => {
     data: "Prince",
   });
 });
+
 // lets create all the book route
 app.get("/books", (req, res) => {
   res.json({
@@ -31,12 +30,13 @@ app.get("/books", (req, res) => {
     data: books,
   });
 });
+
 // lets create a single book route
 app.get("/books/:id", (req, res) => {
   const id = req.params.id;
-  const bookFound = books.find((book) => book.id === id);
+    const bookFound = books.find((book) => book.id === id);
   if (bookFound) {
-    res.json({
+        res.json({
       status: "Succesful",
       message: "All books",
       data: bookFound,
@@ -46,12 +46,13 @@ app.get("/books/:id", (req, res) => {
       status: "Succesful",
       message: "All books",
       data: "Book not found",
-    });
+        });
   }
 });
+
 // lets add new book route
 app.post("/books", (req, res) => {
-  // console.log(req.body);
+   // console.log(req.body);
   const addBook = req.body;
   books.push(addBook);
   res.json({
@@ -60,7 +61,9 @@ app.post("/books", (req, res) => {
     data: addBook,
   });
 });
+
 // start the server
 app.listen(PORT, () => {
+ 
   console.log("Server started...");
 });
