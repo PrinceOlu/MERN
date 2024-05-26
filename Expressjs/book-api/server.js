@@ -20,6 +20,7 @@ app.get("/", (req, res) => {
   res.json({
     status: "Succesful",
     message: "Welcome to my home page",
+    data: "Prince",
   });
 });
 // lets create all the book route
