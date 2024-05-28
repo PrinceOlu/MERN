@@ -1,21 +1,22 @@
-// initialise expres
+// initialize express
 const express = require("express");
-// create an intance of express
+// create an instance of express
 const app = express();
-// create the port
+// create PORT
 const PORT = 3000;
-// import the Route
+
+// import router and user as middle ware
 const userRouter = require("./UersRoute/UsersRoute");
-// use the router as a middleware
+// use it as a middle ware
 app.use("/users", userRouter);
-// home route
+// create home route
 app.get("/", (req, res) => {
   res.json({
-    message: "Home page",
+    message: "Welcome home",
   });
+  console.log("Welcome home");
 });
-
-// start the server
+// START SERVER
 app.listen(PORT, () => {
-  console.log("Server started.....!");
+  console.log("server running...");
 });

@@ -1,35 +1,32 @@
-// initialise expres
 const express = require("express");
-
-// create an intance of the router
+// create an instance of the router
 const userRouter = express.Router();
 
-// Getting all users
-userRouter.get("/", (req, res) => {
+// getting all users
+userRouter.get("", (req, res) => {
   res.json({
-    message: "All Users Route",
+    message: "All users",
   });
 });
-// Getting a user
+// getting a single user
 userRouter.get("/:id", (req, res) => {
+  // const id = id.params.id;
   res.json({
-    message: "All Users Route",
+    message: "A single user",
   });
 });
-
 // updating a single user
 userRouter.put("/:id", (req, res) => {
-  const id = req.params.id;
+  // const id = id.params.id;
   res.json({
-    message: "Single User Updated",
+    message: "Updating A single user",
   });
 });
-
 // deleting a single user
 userRouter.delete("/:id", (req, res) => {
-  const id = req.params.id;
+  // const id = id.params.id;
   res.json({
-    message: "A User deleted",
+    message: "deleting A single user",
   });
 });
 module.exports = userRouter;
