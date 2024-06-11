@@ -44,7 +44,7 @@ app.get("/users", (req, res) => {
     isPremiumUser: true,
     email: "prince@gmail.com",
   };
-  res.render("userData", userData);
+  res.render("userData.ejs", userData);
 });
 
 // start the server
