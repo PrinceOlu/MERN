@@ -26,7 +26,16 @@ app.get("/contact", (req, res) => {
 app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
-// render user data route
+// render products route
+app.get("/product", (req, res) => {
+  const products = [
+    { name: "Laptop", price: 999 },
+    { name: "Phone", price: 888 },
+    { name: "TV", price: 111 },
+  ];
+  res.render("product", { products });
+});
+// render userdata route
 app.get("/users", (req, res) => {
   // dummy db
   const userData = {
