@@ -60,11 +60,24 @@ const connectDB = async () => {
     // const resultCursor = students.find();
     // const result = await resultCursor.toArray();
     // using findOne for a single search
-    const result = await students.findOne({
-      age: 20,
-    });
+    // const result = await students.findOne({
+    //   age: 20,
+    // });
+    // console.log("Document inserted with _id:", result);
 
-    console.log("Document inserted with _id:", result);
+    // ==========UPDATE OPERATIONS==========
+    //----update one
+    const result = await students.updateOne(
+      {
+        name: "Prince",
+      },
+      {
+        $set: {
+          age: 40,
+        },
+      }
+    );
+    console.log(result);
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
   }
