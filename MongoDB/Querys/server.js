@@ -40,12 +40,18 @@ const connectDB = async () => {
 
     // ============QUERYING OPERATORS========
     // ---GREATER THAN $gt---------------
+    // const employeesCursor = employees.find({
+    //   age: {
+    //     $gt: 30,
+    //   },
+    // });
+
+    // ------GREATER THAN OR EQUAL-TO $gte-----
     const employeesCursor = employees.find({
       age: {
-        $gt: 30,
+        $gte: 25,
       },
     });
-
     const result = await employeesCursor.toArray();
     console.log(result);
   } catch (error) {
