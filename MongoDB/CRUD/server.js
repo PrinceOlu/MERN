@@ -66,6 +66,7 @@ const connectDB = async () => {
     // console.log("Document inserted with _id:", result);
 
     // ==========UPDATE OPERATIONS==========
+<<<<<<< HEAD:MongoDB/CRUD/server.js
     // //----update one
     // const result = await students.updateOne(
     //   {
@@ -96,6 +97,19 @@ const connectDB = async () => {
     const result = await students.deleteOne({
       name: "Prince",
     });
+=======
+    //----update one
+    const result = await students.updateOne(
+      {
+        name: "Prince",
+      },
+      {
+        $set: {
+          age: 40,
+        },
+      }
+    );
+>>>>>>> d6ed6316ee6a14041dd4bf86b29726152f025b17:MongoDB/server.js
     console.log(result);
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
