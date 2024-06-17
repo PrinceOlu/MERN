@@ -41,6 +41,33 @@ const userProfileSchema = new mongoose.Schema({
 // Compile the schema to form the model
 const User = mongoose.model("User", userProfileSchema);
 
+// CRUD Operations
+// Save a new user
+const newUser = new User({
+  username: "Prince",
+  age: 26,
+  birthday: new Date("2201-04-15"),
+  isActive: true,
+  hobbies: ["movie", "coding"],
+  address: {
+    street: 1234,
+    city: "Surrey",
+    postCode: 222,
+  },
+  customeData: {
+    country: "Canada",
+  },
+});
+
+newUser
+  .save()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);
