@@ -41,33 +41,33 @@ const userProfileSchema = new mongoose.Schema({
 // Compile the schema to form the model
 const User = mongoose.model("User", userProfileSchema);
 
-//========= READ Operations ============
-// ======== FIND ============
-// User.find()
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("error");
-//   });
-// ======== FINDONE ============
-// User.findOne({
-//   username: "Prince",
-// })
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("error");
-//   });
-// ======== FindById ============
-User.findById("666f95215538c921409b1455")
+// CRUD Operations
+// Save a new user
+const newUser = new User({
+  username: "Prince",
+  age: 26,
+  birthday: new Date("2201-04-15"),
+  isActive: true,
+  hobbies: ["movie", "coding"],
+  address: {
+    street: 1234,
+    city: "Surrey",
+    postCode: 222,
+  },
+  customeData: {
+    country: "Canada",
+  },
+});
+
+newUser
+  .save()
   .then((data) => {
     console.log(data);
   })
   .catch((e) => {
-    console.log("error");
+    console.log(e);
   });
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);
