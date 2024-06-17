@@ -41,33 +41,6 @@ const userProfileSchema = new mongoose.Schema({
 // Compile the schema to form the model
 const User = mongoose.model("User", userProfileSchema);
 
-//========= READ Operations ============
-// ======== FIND ============
-// User.find()
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("error");
-//   });
-// ======== FINDONE ============
-// User.findOne({
-//   username: "Prince",
-// })
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((e) => {
-//     console.log("error");
-//   });
-// ======== FindById ============
-User.findById("666f95215538c921409b1455")
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((e) => {
-    console.log("error");
-  });
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);
