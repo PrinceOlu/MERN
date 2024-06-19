@@ -62,8 +62,6 @@ const User = mongoose.model("User", userProfileSchema);
 //   }
 // };
 // updateUser();
-// ======== updateOne ============
-
 // ======== FindByIdAndupdate ============
 const updateUser = async () => {
   try {
