@@ -9,64 +9,69 @@ const url =
 const connectDB = async () => {
   try {
     await mongoose.connect(url);
-    console.log("database connected...");
+    console.log("Database connected...");
   } catch (error) {
-    console.log("error in connection", error);
+    console.log("Error in connection", error);
   }
 };
 connectDB();
 
-// Design schema
-const bookSchema = new mongoose.Schema(
+// Address schema
+const addressSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-      set: (val) => val.trim(),
-    },
-    author: {
-      type: String,
-      required: true,
-      set: (val) => val.trim(),
-    },
-    price: {
-      type: Number,
-      required: true,
-      set: (val) => Math.round(val * 100) / 100,
-    },
-    tags: {
-      type: [String],
-      required: true,
-      set: (val) => val.map((tag) => tag.toLowerCase()),
-    },
-    url: {
-      type: String,
-      required: true,
-      set: (val) => `https://google.com/books/${val}`,
-    },
+    street: String,
+    city: String,
+    state: String,
+    zip: Number,
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
-// Compile the schema to form the model
-const Book = mongoose.model("Book", bookSchema);
+// User schema
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    address: addressSchema,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-// Function to test out schema
-const bookDetails = async () => {
+// Compile user schema
+const User = mongoose.model("User", userSchema);
+
+// Create a user
+const createUser = async () => {
   try {
-    const bookCreated = await Book.create({
-      title: "    mongoose for everyone",
-      author: "    Prince Olusegun",
-      price: 19.99999,
-      tags: ["MONGODB", "NODEJS", "mongoose"],
-      url: "mongoose-for-everyone",
+    const newUser = await User.create({
+      name: "moyo",
+      email: "moyo@gmail.com",
+      address: {
+        street: "olomore",
+        city: "surrey",
+        state: "BC",
+        zip: 1234,
+      },
     });
-    console.log(bookCreated);
+    console.log(newUser);
   } catch (error) {
-    console.log(error);
+    if (error.code === 11000) {
+      console.log("Duplicate key error:", error.keyValue);
+    } else {
+      console.log("Error creating user:", error);
+    }
   }
 };
-bookDetails();
+
+createUser();
 
 // Start server
 app.listen(PORT, () => {
