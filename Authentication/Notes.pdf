@@ -7,6 +7,7 @@
 5) configure package.json
  "main": "server.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "nodemon server.js"
   },
 
@@ -23,3 +24,7 @@
    instal the following packages
    npm i express-session
    npm i connect-mongo
+=======
+    "server": "nodemon server.js"
+  },
+>>>>>>> d60d5aad (cookie authentication logic)
