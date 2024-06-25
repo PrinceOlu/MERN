@@ -26,6 +26,7 @@ app.get("/contact", (req, res) => {
 app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
+<<<<<<< HEAD
 // render products route
 app.get("/product", (req, res) => {
   const products = [
@@ -36,6 +37,9 @@ app.get("/product", (req, res) => {
   res.render("product", { products });
 });
 // render userdata route
+=======
+// render user data route
+>>>>>>> 46c7121fb4d2853f4dc00601d1188315705a782c
 app.get("/users", (req, res) => {
   // dummy db
   const userData = {
