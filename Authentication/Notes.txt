@@ -13,4 +13,8 @@
   6) npm i cookie-parser (3rd party to grab the cookie from the browser)
 
   7)NOTE:
-   for cookie with database ,pls install mongoose
+   for cookie with database, pls install mongoose
+
+   8) to secure the password 
+   we install bcryptjs
+   npm i bcryptjs
