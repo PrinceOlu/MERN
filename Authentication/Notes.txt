@@ -17,13 +17,9 @@
 
    8) to secure the password 
    we install bcryptjs
-<<<<<<< HEAD
    npm i bcryptjs
 
    9) for session
    instal the following packages
    npm i express-session
    npm i connect-mongo
-=======
-   npm i bcryptjs
->>>>>>> e84afce9 (login system completed)
