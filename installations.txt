@@ -15,6 +15,18 @@
   7)NOTE:
    for cookie with database, pls install mongoose
 
-   8) to secure the password 
+   8) to create new react projet
+   npx create-react-app my-app
+   b) to install in the current working directory
+   npx create-react-app .
+
+   9) to secure the password 
    we install bcryptjs
    npm i bcryptjs
+
+
+   lists of extensions
+   1) better comments
+   2) code spell checker
+   3) codeium AI coding autocomplete
+   4) Helium icon theme
