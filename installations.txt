@@ -24,6 +24,9 @@
    we install bcryptjs
    npm i bcryptjs
 
+   10) to install react router dom
+npm install react-router-dom
+
 
    lists of extensions
    1) better comments
