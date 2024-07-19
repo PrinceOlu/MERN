@@ -50,3 +50,6 @@ npm install yup
    2) code spell checker
    3) codeium AI coding autocomplete
    4) Helium icon theme
+   5) auto close tag
+   6) auto rename tag
+   7) live server
