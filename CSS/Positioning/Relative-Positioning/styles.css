@@ -70,3 +70,20 @@ body {
 .add-to-cart-button:hover {
   background-color: #d33;
 }
+
+.prince {
+  background-color: #f44;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+.prince:hover {
+  background-color: #d33;
+}
