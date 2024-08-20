@@ -21,7 +21,7 @@ const stringConstructor = new String(
 const greeting = `Hello, world`;
 
 //String interploation
-const username = "Emma";
+const username = "Prince";
 const welcomeMessage = `Hello, ${username}! welcome to our website`;
 
 //Multiline-string

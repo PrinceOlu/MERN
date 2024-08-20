@@ -19,12 +19,11 @@ const salary = null;
 // Object - Storing user data
 
 const user = {
-  firstName: "Jane",
-  lastName: "Tweneboah",
+  firstName: "Prince",
+  lastName: "Ojugbele",
   age: 28,
 };
 
 // Array - Storing a list of numbers
-
 const mixedData = [19, "Jane", true, null, undefined, {}];
 console.log(mixedData);
