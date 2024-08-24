@@ -5,8 +5,12 @@
 //synatx
 
 const studentAges = [20, 30, 25, 50, 31, 20, 10];
-//Access the first elemen
-const firstAge = studentAges[studentAges.length - 1];
+// Accessing the first element
+const FirstElem = studentAges[0];
+// console.log(FirstElem);
+
+//Access the last element
+const LastAge = studentAges[studentAges.length - 1];
 
 //Declaring an array of strings
 const daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "friday"];
@@ -65,7 +69,7 @@ const arrayLike = { 0: "a", 1: "b", 2: "c", length: 3 };
 const convertedArr = Array.from(arrayLike);
 
 //-----
-//Using push method
+//Using push and unshift methods
 //-----
 // const fruits = ['Apple','Banana']
 // console.log('Original fruits', fruits);

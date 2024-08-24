@@ -89,11 +89,11 @@ const sentence = `The ${fruit} is  ${color}`;
 
 //toUpperCase()
 const localCaseStr = "Hello, world";
-// const result = localCaseStr.toLocaleUpperCase()
+// const resultn = localCaseStr.toLowerCase();
 
 //toLowerCase()
 const upperCaseStr = "HELLO, WORLD";
-// const result = localCaseStr.toLocaleLowerCase()
+// const resultn = localCaseStr.toUpperCase();
 
 //Mixing both methods
 const mixStr = "HeLLo, WoRLD";
@@ -129,7 +129,7 @@ const emptyStr = "";
 // const result = emptyStr.length
 
 //string validation
-const username1 = "Emma";
+const username1 = "Prince";
 if (username1.length >= 6) {
   // console.log('Valid username');
 } else {
@@ -142,11 +142,11 @@ if (username1.length >= 6) {
 
 //Basic use
 const greeting1 = "Hello, world";
-const extractedWord = greeting1.slice(7, 90);
+const extractedWord = greeting1.slice(7, 12);
 
 //omitting the end index
 const text = "Hello, world";
-// const result = text.slice(7, 9)
+// const result = text.slice(7)
 
 //using negative indices
 const phrase = "Hello, world";
@@ -161,6 +161,9 @@ const result3 = sentence.slice(-6, -1);
 //----------
 
 //Simple split by space
+// const mySentence = "Hello, world";
+// const words = mySentence.split(" ");
+//Simple split by character
 const mySentence = "Hello, world";
 const words = mySentence.split(",");
 
@@ -173,7 +176,7 @@ const complextText = "apple:banana;pear";
 const mixedFruits = complextText.split(/[:;]/);
 
 //split into characters
-const word = "Emmanuel";
+const word = "Prince";
 const letters = word.split("");
 
 //---------
@@ -270,7 +273,6 @@ const strNum1 = num1.toString();
 
 //Convert boolean to string
 const boolVal2 = false;
-
 // console.log(typeof boolVal2.toString());
 
 //---------
@@ -320,4 +322,4 @@ const emptyField = "";
 const emailInput = "emma@gmail.com";
 const convertedVal = !!emailInput;
 
-console.log(convertedVal);
+// console.log(convertedVal);

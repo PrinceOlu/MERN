@@ -7,6 +7,7 @@
 // switch (dayNumber) {
 //   case 0:
 //     console.log("Sunday");
+//     break;
 //   case 1:
 //     console.log("Monday");
 //     break;
@@ -38,6 +39,7 @@
 //     break;
 //   case "yellow":
 //     console.log("Ready");
+// break;
 //   case "red":
 //     console.log("Stop");
 //     break;
