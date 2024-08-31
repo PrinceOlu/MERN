@@ -1,7 +1,7 @@
 // Search and filter using find
 // Find the first patient with a specific ailment in a Hospital database.
 
-const patient = [
+const patients = [
   { id: 101, name: "Sarah", disease: "cold" },
   { id: 102, name: "Mike", disease: "fever" },
   { id: 103, name: "luci", disease: "cold" },
@@ -11,7 +11,7 @@ const patient = [
 ];
 
 // finding patient with Cold
-const patientWithCold = patient.find((patient) => {
+const patientWithCold = patients.find((patient) => {
   return patient.disease === "cold";
 });
 

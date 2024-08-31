@@ -1,5 +1,5 @@
 // // manipulation using splice
-// // to filter the list of active users
+// to filter the list of active users
 // const users = [
 //   {
 //     id: 1,
@@ -17,22 +17,21 @@
 //     name: "Ade",
 //   },
 // ];
+// // To remove inactive users combining 2 methods
 
-// // To remove inactive users
-// // Find the index of the user to be removed
-
-// const indexToRemove = users.findIndex((users) => {
-//   return users.id === 2 && users.isActive === false;
+// // 1) Find the index of the user to be removed
+// const indexToRemove = users.findIndex((user) => {
+//   return user.id === 2 && user.isActive === false;
 // });
 
-// // using splice
+// // 2) using splice to remove the user that was found
 // if (indexToRemove !== -1) {
 //   users.splice(indexToRemove, 1);
 // }
 // console.log(`All user after splice  :`, users);
 // console.log(`Active users ONLY after splice: `, indexToRemove);
 
-// case study: You are developing a playlist feature for a music streaming app. Users can add and delete songs to their playlists. Each playlists is an array of song objects. You have to implememnt features that allow user to delete a song, move a sog UP or DOWN the list, and insert a song at a particular index.
+// case study: You are developing a playlist feature for a music streaming app. Users can add and delete songs to their playlists. Each playlists is an array of song objects. You have to implememnt features that allow user to delete a song, move a song UP or DOWN the list, and insert a song at a particular index.
 
 const playlists = [
   {

@@ -6,7 +6,7 @@
 // const numbers = [1, 2, 3, 4];
 
 // // const [first, second, third, forth] = numbers;
-// // use the code baove or this
+// // use the code above or this
 // const [first, second, third, forth] = [1, 2, 3, 4];
 // console.log(forth);
 

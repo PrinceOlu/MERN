@@ -1,4 +1,4 @@
-// search and filter using everey()
+// search and filter using every()
 
 // confirm if all students passed their exams
 

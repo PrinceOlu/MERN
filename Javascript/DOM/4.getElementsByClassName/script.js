@@ -25,3 +25,5 @@ const fictionBooksTitles = fictionBooksArr.map((fictionBooksArr) => {
 
 // Log the array of fiction book titles
 console.log(fictionBooksTitles);
+const fictionSegun = document.getElementsByClassName("fiction");
+console.log(fictionSegun[0].innerHTML);

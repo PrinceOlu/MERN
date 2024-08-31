@@ -11,28 +11,24 @@ const students = [
   { id: 2, name: "mofe", grade: "B" },
 ];
 // accessing students
-const demo = students;
-// console.log(demo);
+// console.log(students);
 // console.log(demo[1].name);
 
 // ---------------------------------------
 // to insert new record
 // -----------------------------------
 // adding a new student using functions and array methods. lets use an arrow function
-const newStudent = (name, grade) => {
-  // get new ID dynamically
+const addStudent = (name, grade) => {
+  // get the id dynamically
   const newID = students.length + 1;
   const newStudent = {
     id: newID,
     name: name,
-    garde: grade,
+    grade: grade,
   };
-  //use push methosd to add te newstudent data to the students list
   students.push(newStudent);
 };
-// call the function with arguements because it has arguements
-newStudent("Moyo", "C");
-
+addStudent("Mofe", "C");
 console.log(students);
 
 // ---------------------------------------

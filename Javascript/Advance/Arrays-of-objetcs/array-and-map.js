@@ -6,19 +6,18 @@ const cart = [
   { name: "TV", price: 1500, qty: 1 },
   { name: "Headphones", price: 100, qty: 3 },
 ];
+console.log(`Product Prices before discount:`, cart);
 
 // Calculate discounted prices and the total after discount
-
-const discount = cart.map((item, total) => ({
-  name: item.name,
-  price: item.price * 0.9 * item.qty, // Applying 10% discount to the unit price
-  qty: item.qty,
-}));
-
+const discount = cart.map((item) => {
+  return {
+    name: item.name,
+    price: item.price * 0.9,
+    qty: item.qty,
+  };
+});
+console.log(`Product Prices after discount:`, discount);
 const totalafterDiscount = discount.reduce((total, item) => {
   return total + item.price * item.qty; // Total price for each item after discount
 }, 0);
-
 console.log(`Total after 10% discount: $${totalafterDiscount.toFixed(2)}`);
-console.log(`Product Prices before discount:`, cart);
-console.log(`Product Prices after discount:`, discount);

@@ -33,8 +33,8 @@ const transactions = [
   { id: 5, amount: 300 },
 ];
 
-let aboveTransactions = transactions.filter((transactions) => {
-  return transactions.amount > 150;
+let aboveTransactions = transactions.filter((transaction) => {
+  return transaction.amount > 150;
 });
 
 console.log(`All transactions :`, transactions);
