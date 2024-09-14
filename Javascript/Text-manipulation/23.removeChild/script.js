@@ -8,7 +8,8 @@ function addFruit(name) {
   //   lets add some classes to the li for styling
   Li.className = "fruit";
   //   lets add content to the li
-  Li.textContent = name;
+  const lifruits = document.createTextNode(name);
+  Li.appendChild(lifruits);
   //   now lets append the li into the frutlists
   fruitList.appendChild(Li);
   //   console.log(Li);

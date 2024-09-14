@@ -14,7 +14,7 @@ function addStudent(name, grade) {
   const studentList = document.getElementById("studentList");
   //   to append the content
   let beforeNode = null;
-  // llop through the existing students to find the correct position for the new student
+  // loop through the existing students to find the correct position for the new student
   //   using 'for of loop`
   for (const child of studentList.children) {
     const childGrade = parseInt(child.textContent.split(":")[1]);
@@ -31,5 +31,5 @@ function addStudent(name, grade) {
 addStudent("segun", "90%");
 addStudent("Mofe", "80%");
 addStudent("Moyo", "70%");
-addStudent("Ade", "60%");
+addStudent("Ade", "100%");
 addStudent("John", "50%");
