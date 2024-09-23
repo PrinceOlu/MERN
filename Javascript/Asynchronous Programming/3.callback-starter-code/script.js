@@ -15,14 +15,14 @@
 // ==== more advance method 2 ======
 
 // function passCallBack(callBack) {
-//     // call the function as a callback
-//     callBack();
-//   }
-//   passCallBack(() => {
-//     console.log("this is an advance callback");
-//   });
+//   // call the function as a callback
+//   callBack();
+// }
+// passCallBack(() => {
+//   console.log("this is an advance callback");
+// });
 
-// ==== more advance method 3 ======
+// ==== more advance method with return ======
 // returning a callback function
 // function passCallBack(callback) {
 //   // call the function as a callback
@@ -68,4 +68,3 @@
 // calcSum(2, 3, (result) => {
 //   console.log(result);
 // });
-

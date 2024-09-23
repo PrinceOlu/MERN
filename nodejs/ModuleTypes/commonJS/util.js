@@ -3,16 +3,15 @@
 
 // 1. Single function export
 // 2. Object export
-// 3.Named function export
+// 3. Named function export
 // 4. using export shorthand
 
-// // 1. Single function export
+// 1. Single function export
 // const fname = "Prince";
 // const greetings = (name) => {
 //   return `Hello ${name}`;
 // };
-
-// // to export greetings as a module and make it re-usable in othe pages
+// // // to export greetings as a module and make it re-usable in othe pages
 // module.exports = greetings;
 
 // 2. Object export
@@ -39,9 +38,9 @@
 
 // 4. using export shorthand
 //  we can remove the module keyword
-exports.sayHello = (name) => {
-  return `Hello ${name}`;
-};
-exports.saybye = (name) => {
-  return `Good-bye ${name}`;
-};
+// exports.sayHello = (name) => {
+//   return `Hello ${name}`;
+// };
+// exports.saybye = (name) => {
+//   return `Good-bye ${name}`;
+// };

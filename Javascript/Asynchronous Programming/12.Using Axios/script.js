@@ -10,13 +10,12 @@
 // let us use the API URL
 const url = "https://jsonplaceholder.typicode.com/posts";
 
-// Axious  method using Promise based
+// using Promise based
 // const fetchData = () => {
 //   axios
 //     .get(url)
-//     .then((result) => {
-//       // we  dont need return a promise, it resolve the promise by itself and passes the json data itself
-//       console.log(result.data);
+//     .then((response) => {
+//       console.log(response.data);
 //     })
 //     .catch((error) => {
 //       console.log(error);
@@ -24,14 +23,11 @@ const url = "https://jsonplaceholder.typicode.com/posts";
 // };
 // fetchData();
 
-// Axious  method using async/await
-const fetchData = async () => {
+// using async-await
+const fetchData2 = async () => {
   try {
-    const result = await axios.get(url);
-    // return the data as a promise
-    console.log(result.data);
-  } catch (error) {
-    console.log(error);
-  }
+    const response = await axios.get(url);
+    console.log(response.data);
+  } catch (error) {}
 };
-fetchData();
+fetchData2();

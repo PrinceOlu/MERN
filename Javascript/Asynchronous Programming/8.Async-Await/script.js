@@ -1,22 +1,20 @@
-// using a setTimeOut inside async/await
+// using a setTimeOut inside async/await to simulate a delay similar to making HTTP request
 
-// // creation
+// creation
 // const waitAndRun = async (value) => {
-//   // async must return a promise
 //   return new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //       resolve(value);
-//     }, 3000);
+//     }, 5000);
 //   });
 // };
 // // usage
 // // await must be in an async function
 // const getValue = async () => {
-//   const result = await waitAndRun("this is a simple async await");
+//   const result = await waitAndRun("theis is promise usage");
 //   console.log(result);
 // };
 // getValue();
-
 // fetching values from multiple async/awaits
 // const myName = async () => {
 //   return new Promise((reslove, reject) => {
@@ -29,7 +27,7 @@
 //   return new Promise((reslove, reject) => {
 //     setTimeout(() => {
 //       reslove(30);
-//     });
+//     }, 2000);
 //   });
 // };
 
@@ -40,20 +38,21 @@
 // getValues();
 
 // ===== add numbers===========
-// const addNum = async (a, b) => {
-//   return new Promise((resolve, reject) => {
-//     const a = 5;
-//     const b = 10;
-//     const ans = a + b;
-//     if (ans) {
-//       resolve(ans);
-//     } else {
-//       reject("error");
-//     }
-//   });
-// };
-// const getValue = async () => {
-//   const result = await addNum();
-//   console.log(result);
-// };
-// getValue();
+const addNum = async (a, b) => {
+  return new Promise((resolve, reject) => {
+    const a = 5;
+    const b = 10;
+    const ans = a * b;
+    if (ans) {
+      resolve(ans);
+    } else {
+      reject("error in your logic");
+    }
+  });
+};
+// usage
+const getResult = async () => {
+  const result = await addNum();
+  console.log(result);
+};
+getResult();

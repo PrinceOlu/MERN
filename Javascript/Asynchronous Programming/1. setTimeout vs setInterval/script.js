@@ -1,14 +1,22 @@
 // ==== using set Timeout =======
-
+// const multiply = (a, b) => {
+//   const result = a * b;
+//   console.log(result);
+// };
+// // setTimeout(() => multiply(2, 5), 3000);
 // ===== method 1 ===========
 // create the function
 // const showMessage = () => {
 //   console.log("show message after 3 seconds");
 // };
 
-// // set the time out
+// set the time out
 // setTimeout(showMessage, 3000);
 // console.log("waiting for the message to show up after 3 seconds");
+
+// // to cancel a timeout
+// const deleteTimeout = setTimeout(showMessage, 3000);
+// clearTimeout(deleteTimeout);
 
 // ===== method 2 advance ===========
 // =====using arrow function

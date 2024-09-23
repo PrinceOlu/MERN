@@ -3,7 +3,7 @@
 
 // console.log(global);
 
-global.myGlobal = "Hello from the global object";
+// global.myGlobal = "Hello from the global object";
 // console.log(global.myGlobal);
 
 // To check if our global varible is truely global
@@ -28,6 +28,6 @@ global.myGlobal = "Hello from the global object";
 
 // using setTimeout()
 
-setTimeout(() => {
-  console.log("Hello world");
-}, 1000);
+// setTimeout(() => {
+//   console.log("Hello world");
+// }, 1000);

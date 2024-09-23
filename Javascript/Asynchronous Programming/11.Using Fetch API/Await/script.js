@@ -14,26 +14,25 @@ const url = "https://jsonplaceholder.typicode.com/todos";
 // 5) chain the data to the result to get the actual data
 // 6) catch the error
 
-// create the fetch function
+//1) create the fetch function
 // const fetchData = () => {
-//   // bring in the fetch Method and pass the URL
+//   //2)  bring in the fetch Method and pass the URL
 //   fetch(url)
-//     // add .then to convert it to a promise
+//     //3) add .then to convert it to a promise
 //     .then((result) => {
-//       // we return a promise in json format
+//       //4) we return a promise in json format
 //       return result.json();
 //     })
-//     // chain the data to the result to get the actual data
+//     //5) chain the data to the result to get the actual data
 //     .then((data) => {
 //       console.log(data);
 //     })
-//     // catch the error
+//     // 6) catch the error
 //     .catch((error) => {
 //       console.log(error);
 //     });
 // };
 // fetchData();
-
 // fetch method using async/await
 // steps
 // 1) create a function
