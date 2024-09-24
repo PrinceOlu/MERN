@@ -1,6 +1,0 @@
-using node, express and mongo db
-1) npm init -y
-2) npm install express 
-3) npm install mongodb@^3.7.0 --save
-
-
