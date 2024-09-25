@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
-
 const PORT = 3000;
-// to bre able to allow the client 
+// to be able to allow the client 
 // to send data to the server
 // we use a middleware
 app.use(express.json());
@@ -33,8 +32,7 @@ app.get("/books/",(req,res)=>{
 // Get a single book by ID
 app.get("/books/:id", (req, res) => {
   const id = req.params.id;
-  
-  // Find the book by matching the ID
+    // Find the book by matching the ID
   const foundBook = books.find((book) => book.id === id);
 
   if (foundBook) {
