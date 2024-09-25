@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "book API",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"

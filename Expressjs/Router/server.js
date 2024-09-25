@@ -1,21 +1,24 @@
-// initialise expres
-const express = require("express");
-// create an intance of express
+import express from "express";
+import userRouter from "../Router/UsersRoute/UsersRoute.js"; // Use ES6 import
 const app = express();
-// create the port
 const PORT = 3000;
-// import the Route
-const userRouter = require("./UersRoute/UsersRoute");
-// use the router as a middleware
+
+// Use the router as a middleware
 app.use("/users", userRouter);
-// home route
+
+// to be able to allow the client 
+// to send data to the server
+// we use a middleware
+app.use(express.json());
+
+// Home route
 app.get("/", (req, res) => {
   res.json({
     message: "Home page",
   });
 });
 
-// start the server
+// Start the server
 app.listen(PORT, () => {
-  console.log("Server started.....!");
+  console.log("Server started on http://localhost:" + PORT);
 });

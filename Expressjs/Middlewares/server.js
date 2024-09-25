@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // sample BUILTIN MIDDLEWARES
-// 1) to sever a static file
+// 1) to serve a static file
 app.use(express.static());
 // 2 To get incoming data in json format
 app.use(express.json());
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   console.log("i am application level middleware");
   next();
 });
-// lHome page route
+// Home page route
 app.get("/", (req, res) => {
   res.json({
     status: "Succesful",

@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 
 // import the Route
-const userRouter = require("./UersRoute/UsersRoute");
+const userRouter = require("./UsersRoute/UsersRoute");
 // import isAthenticated
 const isAthenticated = require("../Router-Middleware/middleware/isAuthenticated");
 
