@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 // MongoDB connection URL
 const url =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 
 // Connect to MongoDB
 const connectDB = async () => {

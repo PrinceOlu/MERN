@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 // MongoDB connection URL
 const url =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -41,15 +41,63 @@ const userProfileSchema = new mongoose.Schema({
 // Compile the schema to form the model
 const User = mongoose.model("User", userProfileSchema);
 
-//========= updateOne Operations ============
+//========= update Operators ============
+//========= set and unset  ============
 // const updateUser = async () => {
 //   try {
-//     const updateDoc = await User.updateOne(
+//     const updateDoc = await User.findOneAndUpdate(
 //       {
 //         username: "Alice",
 //       },
 //       {
-//         age: 1,
+//         $set: {
+//           age: 100,
+//           isActive: false,
+//         },
+//       },
+
+//       {
+//         new: true,
+//       }
+//     );
+//     console.log(updateDoc);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// updateUser();
+
+// ======= $unset================
+const updateUser = async () => {
+  try {
+    const updateDoc = await User.findOneAndUpdate(
+      {
+        username: "Alice",
+      },
+      {
+        $unset: {
+          age: 1,
+          isActive: false,
+        },
+      },
+
+      {
+        new: true,
+      }
+    );
+    console.log(updateDoc);
+  } catch (error) {
+    console.log(error);
+  }
+};
+updateUser();
+// ======== FindByIdAndupdate ============
+// const updateUser = async () => {
+//   try {
+//     const updateDoc = await User.findByIdAndUpdate(
+//       "666f95215538c921409b1454",
+//       {
+//         age: 10,
 //         isActive: false,
 //       },
 //       {
@@ -62,25 +110,6 @@ const User = mongoose.model("User", userProfileSchema);
 //   }
 // };
 // updateUser();
-// ======== FindByIdAndupdate ============
-const updateUser = async () => {
-  try {
-    const updateDoc = await User.findByIdAndUpdate(
-      "666f95215538c921409b1454",
-      {
-        age: 10,
-        isActive: false,
-      },
-      {
-        new: true,
-      }
-    );
-    console.log(updateDoc);
-  } catch (error) {
-    console.log(error);
-  }
-};
-updateUser();
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);

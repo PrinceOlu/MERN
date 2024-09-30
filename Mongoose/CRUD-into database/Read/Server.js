@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 // MongoDB connection URL
 const url =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -41,33 +41,33 @@ const userProfileSchema = new mongoose.Schema({
 // Compile the schema to form the model
 const User = mongoose.model("User", userProfileSchema);
 
-// CRUD Operations
-// Save a new user
-const newUser = new User({
-  username: "Prince",
-  age: 26,
-  birthday: new Date("2201-04-15"),
-  isActive: true,
-  hobbies: ["movie", "coding"],
-  address: {
-    street: 1234,
-    city: "Surrey",
-    postCode: 222,
-  },
-  customeData: {
-    country: "Canada",
-  },
-});
-
-newUser
-  .save()
+//========= READ Operations ============
+// ======== FIND ============
+User.find()
   .then((data) => {
     console.log(data);
   })
   .catch((e) => {
-    console.log(e);
+    console.log("error");
   });
-
+// ======== FINDONE ============
+// User.findOne({
+//   username: "Prince",
+// })
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((e) => {
+//     console.log("error");
+//   });
+// ======== FindById ============
+// User.findById("666f89c229ac4e1865bc40a2")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((e) => {
+//     console.log("error");
+//   });
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);

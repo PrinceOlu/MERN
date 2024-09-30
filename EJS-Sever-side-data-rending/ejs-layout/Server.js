@@ -15,7 +15,7 @@ app.set("view engine", "ejs");
 app.use(ejsLayouts);
 
 // Set the default layout
-app.set("layout", "layout/main-layout.ejs");
+app.set("layout", "layout/main-layout");
 
 // render home route
 app.get("/", (req, res) => {

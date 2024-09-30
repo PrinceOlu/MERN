@@ -3,42 +3,54 @@ const app = express();
 const path = require("path");
 const PORT = 3000;
 
-// serve the static files/folders
-// using a middleware
+// Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// setup the ejs view engine
+// Setup the EJS view engine
 app.set("view engine", "ejs");
 
-// render home route
+// Render home route
 app.get("/", (req, res) => {
   res.render("home");
 });
-// render about route
+
+// Render about route
 app.get("/about", (req, res) => {
   res.render("about");
 });
-// render contact route
+
+// Render contact route
 app.get("/contact", (req, res) => {
   res.render("contact");
 });
-// render gallery route
+
+// Render gallery route
 app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
-// render user data route
+
+// Render user data route
 app.get("/users", (req, res) => {
-  // dummy db
   const userData = {
     username: "Prince",
     age: 20,
     isPremiumUser: false,
     email: "prince@gmail.com",
   };
-  res.render("userData.ejs", userData);
+  res.render("userData", userData); // Adjusted to use userData.ejs
 });
 
-// start the server
+// Render product data route
+app.get("/products", (req, res) => { // Changed the path to /products
+  const productData = [
+    { name: "Product 1", price: 10 },
+    { name: "Product 2", price: 20 },
+    { name: "Product 3", price: 30 },
+  ];
+  res.render("productData", {productData }); // Pass products data
+});
+
+// Start the server
 app.listen(PORT, () => {
-  console.log("server is running...");
+  console.log("Server is running on port " + PORT);
 });

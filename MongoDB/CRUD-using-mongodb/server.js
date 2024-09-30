@@ -5,7 +5,7 @@ const PORT = 5000;
 
 // MongoDB URI and client configuration
 const uri =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -37,7 +37,7 @@ const connectDB = async () => {
     //     console.error("Error connecting to MongoDB:", error);
     //   }
     // };
-    // Create a document using inseet many
+    // Create a document using insert many
     // const result = await students.insertMany([
     //   {
     //     name: "Prince",

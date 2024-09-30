@@ -5,7 +5,7 @@ const PORT = 5000;
 
 // MongoDB URI and client configuration
 const uri =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 // create the client
 const client = new MongoClient(uri, {
   serverApi: {
