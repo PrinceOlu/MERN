@@ -1,0 +1,4 @@
+the most popular 3rd party validator is
+https://www.npmjs.com/package/validator
+
+npm i validator
