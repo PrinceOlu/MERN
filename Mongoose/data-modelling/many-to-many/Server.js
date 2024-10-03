@@ -4,8 +4,8 @@ const app = express();
 const PORT = 8082;
 
 // const mongodbURL =
-//   "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
-const mongodbURL = "mongodb://localhost:27017/masynctech";
+//   ""
+
 
 //! 1. Connect to mongodb using mongoose
 const connectToDB = async () => {
