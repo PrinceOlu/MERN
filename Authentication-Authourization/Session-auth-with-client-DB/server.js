@@ -2,18 +2,18 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
 const app = express();
 
-//Connect to mongoose
+// Connect to mongoose
 mongoose
   .connect("mongodb://localhost:27017/userAuthDB")
-  .then(() => {
-    console.log("DB has been connected");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
-//Create the userSchema
+  .then(() => console.log("DB connected"))
+  .catch((err) => console.log(err));
+
+// Create user schema
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,
@@ -22,86 +22,90 @@ const userSchema = new mongoose.Schema({
     default: "user",
   },
 });
-//Compile the schema to form model
+
+// Compile schema into a model
 const User = mongoose.model("User", userSchema);
 
-//!Middlewares
+// Middlewares
 app.use(express.urlencoded({ extended: true }));
-//!Set the view engine
-app.set("view engine", "ejs");
 app.use(cookieParser());
+app.set("view engine", "ejs");
 
-//-----CUSTOM MIDDLEWARES-----
-//!--isAuthenticated (Authentication)
+// Configure session management
+app.use(
+  session({
+    secret: "gsls039434",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 60 * 60 * 1000, // 1 hour
+    },
+    store: MongoStore.create({
+      mongoUrl: "mongodb://localhost:27017/userAuthDB",
+    }),
+  })
+);
+
+// Middleware: isAuthenticated (Authentication)
 const isAuthenticated = (req, res, next) => {
-  //Check the user in the cookies
-  const userDataCookie = req.cookies.userData;
-  try {
-    const userData = userDataCookie && JSON.parse(userDataCookie);
-    if (userData && userData.username) {
-      //!Add the login user into the req object
-      req.userData = userData;
-      return next();
-    } else {
-      res.send("You are not login");
-    }
-  } catch (error) {
-    console.log(error);
+  const userData = req.session.userData;
+  if (userData && userData.username) {
+    req.userData = userData;
+    return next();
+  } else {
+    res.send("You are not logged in");
   }
 };
-//!-isAdmin (Authorization)
+
+// Middleware: isAdmin (Authorization)
 const isAdmin = (req, res, next) => {
   if (req.userData && req.userData.role === "admin") {
     return next();
   } else {
-    res.send("Fobidden: You do not have access, admin only");
+    res.send("Forbidden: Admins only");
   }
 };
 
-//Home Route
+// Routes
+// Home Route
 app.get("/", (req, res) => {
   res.render("home");
 });
-//Login Route (login form)
+
+// Login Route (form)
 app.get("/login", (req, res) => {
   res.render("login");
 });
 
-//Admin Route (Admin page)
+// Admin Route (only accessible by admins)
 app.get("/admin-only", isAuthenticated, isAdmin, (req, res) => {
-  //we have access to the login as req.userData
-  // console.log(req.userData);
   res.render("admin");
 });
-//Register Route (register form)
+
+// Register Route (form)
 app.get("/register", (req, res) => {
   res.render("register");
 });
 
-//Register Logic (register form)
+// Register Logic
 app.post("/register", async (req, res) => {
-  //!Destructure the req.body
   const { username, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
-  await User.create({
-    username,
-    password: hashedPassword,
-  });
-  //Redirect to login
+  await User.create({ username, password: hashedPassword });
   res.redirect("/login");
 });
 
-//Login Route logic
+// Login Logic
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  //!. Find the user in the db
-  const userFound = await User.findOne({
-    username,
-  });
+  const userFound = await User.findOne({ username });
+
   if (userFound && (await bcrypt.compare(password, userFound.password))) {
-    //! Create some cookies (cookie);
-    //* Prepare the login user data
-    //? Setting the cookie with the userdata
+    req.session.userData = {
+      username: userFound.username,
+      role: userFound.role,
+    };
+
     res.cookie(
       "userData",
       JSON.stringify({
@@ -109,41 +113,43 @@ app.post("/login", async (req, res) => {
         role: userFound.role,
       }),
       {
-        maxAge: 3 * 24 * 60 * 1000, //3days expiration
+        maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days expiration
         httpOnly: true,
-        secure: false,
+        secure: false, // true if using HTTPS
         sameSite: "strict",
       }
     );
+
     res.redirect("/dashboard");
   } else {
     res.send("Invalid login credentials");
   }
 });
 
-//Dashboard Route
-app.get("/dashboard", (req, res) => {
-  //! Grab the user from the cookie
-  const userData = req.cookies.userData
-    ? JSON.parse(req.cookies.userData)
-    : null;
+// Dashboard Route
+app.get("/dashboard", isAuthenticated, (req, res) => {
+  const userData = req.session.userData;
   const username = userData ? userData.username : null;
-  //! Render the template
+
   if (username) {
     res.render("dashboard", { username });
   } else {
-    //!Redirect to login
     res.redirect("/login");
   }
 });
 
-//Logout Route
+// Logout Route
 app.get("/logout", (req, res) => {
-  //!Logout
-  res.clearCookie("userData");
-  //redirect
-  res.redirect("/login");
+  req.session.destroy((err) => {
+    if (err) {
+      return res.send("Error logging out");
+    }
+    res.clearCookie("userData");
+    res.redirect("/login");
+  });
 });
 
-//start the server
-app.listen(3000, console.log("The server is running"));
+// Start the server
+app.listen(3001, () => {
+  console.log("Server running on port 3001");
+});

@@ -8,6 +8,7 @@ app.use((req, res, next) => {
   const isError = true;
   console.log("I will always be called...");
   if (isError) {
+    // create an error object
     const error = new Error("Simulated error");
     next(error);
   } else {

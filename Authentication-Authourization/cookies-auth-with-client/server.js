@@ -2,7 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
 
-//!Middlewares
+//!Middlewares for using browsers cookies
 app.use(express.urlencoded({ extended: true }));
 //!Set the view engine
 app.set("view engine", "ejs");

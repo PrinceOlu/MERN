@@ -10,8 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", postRouter);
 // Connect to mongoose
 const url =
-  "mongodb+srv://ojugbeleolusegun:wNjrUe0sC0ERZpbB@mern-cluster0.7hdkpgd.mongodb.net/students-db";
+  "";
 
+  // connect to db using mongoose
 const connectDB = async () => {
   try {
     await mongoose.connect(url, {

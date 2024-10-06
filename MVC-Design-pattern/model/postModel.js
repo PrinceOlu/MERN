@@ -5,5 +5,6 @@ const postSchema = new mongoose.Schema({
   content: String,
   author: String,
 });
+// model
 const Post = mongoose.model("Post", postSchema);
 module.exports = Post;
