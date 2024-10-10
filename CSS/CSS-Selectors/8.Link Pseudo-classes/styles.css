@@ -1,0 +1,48 @@
+#body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #fdfefe;
+}
+#blog {
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+  background-color: #f8f9f9;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #d5d8dc;
+}
+.related-article {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.related-article h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.related-article ul {
+  list-style: none; /* to remove the bullet points*/
+}
+.related-article li {
+  margin-bottom: 10px;
+}
+/* Pseudo classes */
+/* rule of thumb: Use link and visited first*/
+/* before hover and active */
+.related-article a:link {
+  color: red;
+  text-decoration: none;
+}
+/* use this when the link has been visited  */
+.related-article a:visited {
+  color: blue;
+}
+
+.related-article a:hover {
+  text-decoration: underline;
+  color: green;
+}
+.related-article a:active {
+  text-decoration: underline;
+  color: rgb(206, 90, 13);
+}

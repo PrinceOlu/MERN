@@ -1,0 +1,17 @@
+{
+  "name": "express-app",
+  "version": "2.0.0",
+  "description": "my first express application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "keywords": [
+    "Express"
+  ],
+  "author": "Prince",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
