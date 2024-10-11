@@ -1,0 +1,36 @@
+/* Container should display items in a column layout */
+.containerStyle {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Style for the paragraph */
+.intro {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.hobbies {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.hobby {
+  color: red;
+  background-color: cornflowerblue;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+}

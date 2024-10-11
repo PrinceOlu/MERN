@@ -11,13 +11,13 @@ function App() {
     </h2>
   );
   // jsx as an expression
-  const elemrnt3 = (
+  const element3 = (
     <div>
       <h2> I am embeded</h2>
       <p>today's date is {new Date().toLocaleTimeString()}</p>
     </div>
   );
-  return elemrnt3;
+  return element3;
 }
 
 export default App;
