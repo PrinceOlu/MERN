@@ -1,11 +1,16 @@
 import React from "react";
-import UserProfile from "./Components/UserProfile";
+import Profile from "../src/components/Profile";
+
 function App() {
   return (
     <div>
-      <UserProfile />
-      <UserProfile />
-      <UserProfile />
+      {/* <h1>Profile</h1> */}
+      <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
+      <Profile />
     </div>
   );
 }
