@@ -1,21 +1,10 @@
-const UserProfile = (props) => {
-  // console.log(props);
-  return (
-    <div style={{ border: "1px solid blue", padding: "20px", margin: "20px" }}>
-      <h2>User Profile</h2>
-      <p>
-        <b>Name</b>: {props.name}
-      </p>
-      <p>
-        <b>Email</b>: {props.email}
-      </p>
-      <p>
-        <b>Location</b>: {props.location}
-      </p>
-      <p>
-        <b>About</b>: {props.about}
-      </p>
+const Profile = ({name, age}) => {
+  return(
+    <div>User Profile Component
+      <h1>My name is {name}. I am {age}yrs old. </h1>
+      
     </div>
-  );
-};
-export default UserProfile;
+    
+  )
+}
+export default Profile;
