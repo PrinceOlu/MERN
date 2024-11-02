@@ -75,7 +75,8 @@ describe('dehydration and rehydration', () => {
       key: [{ nestedKey: 1 }],
     })
 
-    const fetchDataAfterHydration = vi.fn<Array<unknown>, unknown>()
+    const fetchDataAfterHydration =
+      vi.fn<(...args: Array<unknown>) => unknown>()
     await hydrationClient.prefetchQuery({
       queryKey: ['string'],
       queryFn: fetchDataAfterHydration,
@@ -280,7 +281,8 @@ describe('dehydration and rehydration', () => {
       })?.state.data,
     ).toBe('string')
 
-    const fetchDataAfterHydration = vi.fn<Array<unknown>, unknown>()
+    const fetchDataAfterHydration =
+      vi.fn<(...args: Array<unknown>) => unknown>()
     await hydrationClient.prefetchQuery({
       queryKey: ['string', { key: ['string'], key2: 0 }],
       queryFn: fetchDataAfterHydration,
@@ -1025,5 +1027,43 @@ describe('dehydration and rehydration', () => {
 
     queryClient.clear()
     hydrationClient.clear()
+  })
+
+  test('should overwrite query in cache if hydrated query is newer (with promise)', async () => {
+    // --- server ---
+
+    const serverQueryClient = createQueryClient({
+      defaultOptions: {
+        dehydrate: {
+          shouldDehydrateQuery: () => true,
+        },
+      },
+    })
+
+    const promise = serverQueryClient.prefetchQuery({
+      queryKey: ['data'],
+      queryFn: async () => {
+        await sleep(10)
+        return 'server data'
+      },
+    })
+
+    const dehydrated = dehydrate(serverQueryClient)
+
+    // --- client ---
+
+    const clientQueryClient = createQueryClient()
+
+    clientQueryClient.setQueryData(['data'], 'old data', { updatedAt: 10 })
+
+    hydrate(clientQueryClient, dehydrated)
+
+    await promise
+    await waitFor(() =>
+      expect(clientQueryClient.getQueryData(['data'])).toBe('server data'),
+    )
+
+    clientQueryClient.clear()
+    serverQueryClient.clear()
   })
 })

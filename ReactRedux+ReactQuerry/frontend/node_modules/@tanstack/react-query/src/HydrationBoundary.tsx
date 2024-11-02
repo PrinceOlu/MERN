@@ -1,3 +1,5 @@
+/* eslint-disable react-compiler/react-compiler */
+
 'use client'
 import * as React from 'react'
 
@@ -58,7 +60,7 @@ export const HydrationBoundary = ({
       }
 
       const queryCache = client.getQueryCache()
-      // eslint-disable-next-line ts/no-unnecessary-condition
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       const queries = (state as DehydratedState).queries || []
 
       const newQueries: DehydratedState['queries'] = []

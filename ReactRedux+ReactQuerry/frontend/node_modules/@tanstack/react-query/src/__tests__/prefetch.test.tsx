@@ -12,15 +12,21 @@ import {
 } from '..'
 import { createQueryClient, queryKey, renderWithClient, sleep } from './utils'
 
-import type { InfiniteData, UseInfiniteQueryOptions, UseQueryOptions } from '..'
+import type {
+  InfiniteData,
+  UseSuspenseInfiniteQueryOptions,
+  UseSuspenseQueryOptions,
+} from '..'
 import type { Mock } from 'vitest'
 
 const generateQueryFn = (data: string) =>
-  vi.fn<any, Promise<string>>().mockImplementation(async () => {
-    await sleep(10)
+  vi
+    .fn<(...args: Array<any>) => Promise<string>>()
+    .mockImplementation(async () => {
+      await sleep(10)
 
-    return data
-  })
+      return data
+    })
 
 const generateInfiniteQueryOptions = (
   data: Array<{ data: string; currentPage: number; totalPages: number }>,
@@ -29,7 +35,7 @@ const generateInfiniteQueryOptions = (
 
   return {
     queryFn: vi
-      .fn<any, Promise<(typeof data)[number]>>()
+      .fn<(...args: Array<any>) => Promise<(typeof data)[number]>>()
       .mockImplementation(async () => {
         const currentPageData = data[currentPage]
         if (!currentPageData) {
@@ -54,7 +60,7 @@ describe('usePrefetchQuery', () => {
   const queryClient = createQueryClient({ queryCache })
 
   function Suspended<TData = unknown>(props: {
-    queryOpts: UseQueryOptions<TData, Error, TData, Array<string>>
+    queryOpts: UseSuspenseQueryOptions<TData, Error, TData, Array<string>>
     children?: React.ReactNode
   }) {
     const state = useSuspenseQuery(props.queryOpts)
@@ -122,6 +128,8 @@ describe('usePrefetchQuery', () => {
   })
 
   it('should let errors fall through and not refetch failed queries', async () => {
+    const consoleMock = vi.spyOn(console, 'error')
+    consoleMock.mockImplementation(() => undefined)
     const queryFn = generateQueryFn('Not an error')
 
     const queryOpts = {
@@ -154,6 +162,8 @@ describe('usePrefetchQuery', () => {
     await waitFor(() => rendered.getByText('Oops!'))
     expect(rendered.queryByText('data: Not an error')).not.toBeInTheDocument()
     expect(queryOpts.queryFn).not.toHaveBeenCalled()
+
+    consoleMock.mockRestore()
   })
 
   it('should not create an endless loop when using inside a suspense boundary', async () => {
@@ -185,6 +195,8 @@ describe('usePrefetchQuery', () => {
   })
 
   it('should be able to recover from errors and try fetching again', async () => {
+    const consoleMock = vi.spyOn(console, 'error')
+    consoleMock.mockImplementation(() => undefined)
     const queryFn = generateQueryFn('This is fine :dog: :fire:')
 
     const queryOpts = {
@@ -228,6 +240,7 @@ describe('usePrefetchQuery', () => {
     fireEvent.click(rendered.getByText('Try again'))
     await waitFor(() => rendered.getByText('data: This is fine :dog: :fire:'))
     expect(queryOpts.queryFn).toHaveBeenCalledTimes(1)
+    consoleMock.mockRestore()
   })
 
   it('should not create a suspense waterfall if prefetch is fired', async () => {
@@ -294,7 +307,7 @@ describe('usePrefetchInfiniteQuery', () => {
   const Fallback = vi.fn().mockImplementation(() => <div>Loading...</div>)
 
   function Suspended<T = unknown>(props: {
-    queryOpts: UseInfiniteQueryOptions<
+    queryOpts: UseSuspenseInfiniteQueryOptions<
       T,
       Error,
       InfiniteData<T>,
@@ -308,7 +321,9 @@ describe('usePrefetchInfiniteQuery', () => {
 
     return (
       <div>
-        {state.data.pages.map((page) => props.renderPage(page))}
+        {state.data.pages.map((page, index) => (
+          <div key={index}>{props.renderPage(page)}</div>
+        ))}
         <button onClick={() => state.fetchNextPage()}>Next Page</button>
       </div>
     )
