@@ -13,3 +13,6 @@ tsc --init
   4) at the root folder terminal
   tsc --watch
   node --watch ./dist/index.js
+
+  5) compile the index.ts to index.js
+  tsc src/index.ts

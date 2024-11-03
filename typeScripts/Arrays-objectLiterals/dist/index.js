@@ -1,13 +1,12 @@
-"use strict";
 // arrays
-let age = [1, 2, 3];
-let names = ["Ade", "Mofe", "Segun"];
+var age = [1, 2, 3];
+var names = ["Ade", "Mofe", "Segun"];
 names.push("Ojugbele");
-const newNames = names[2];
+var newNames = names[2];
 // booleans
-let isMarried;
+var isMarried;
 // objects
-let user = {
+var user = {
     fname: "Ojugbele",
     age: 20
 };
