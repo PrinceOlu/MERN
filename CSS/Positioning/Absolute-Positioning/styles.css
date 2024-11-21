@@ -35,15 +35,15 @@ footer {
 .donate-button {
   background-color: #a72890;
   color: white;
-  padding: 8px;
+  padding: 6px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   /* absolute position  */
   position: absolute;
-  right: 10%;
-  top: 9%;
+  left: 5%;
+  top: 10%;
   /* left: 20%; */
   /* bottom: 0; */
 }

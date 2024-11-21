@@ -1,5 +1,5 @@
 // ----------------------
-// function declaration, they are hoisted
+// function declaration are hoisted i.e it can be used befor it is defined in the code
 // --------------------------------
 
 // function sayHello() {

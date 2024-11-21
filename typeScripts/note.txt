@@ -1,0 +1,19 @@
+https://www.youtube.com/watch?v=VGu1vDAWNTg
+https://www.youtube.com/watch?v=SpwzRDUQ1GI
+
+
+NB:
+1 ) install typescript globally
+npm install -g typescript
+
+2)  create a tsConfig file
+tsc --init
+3) configure the tscConfig.json
+    "outDir": "./dist",                // Output directory for compiled files
+    "rootDir": "./src"                 // Directory containing source files
+  4) at the root folder terminal
+  tsc --watch
+  node --watch ./dist/index.js
+
+  5) compile the index.ts to index.js
+  tsc src/index.ts

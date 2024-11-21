@@ -5,7 +5,7 @@ const app = express();
 // create the port
 const PORT = 3000;
 // import the Route
-const userRouter = require("./UersRoute/UsersRoute");
+const userRouter = require("./UsersRoute/UsersRoute");
 // use the router as a middleware
 app.use("/users", userRouter);
 // home route

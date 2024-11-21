@@ -1,0 +1,7 @@
+1) npm init --y
+2) npm i express mongoose
+
+
+
+starting the server automatically
+node --watch server instead of nodemon or npm run start

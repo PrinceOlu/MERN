@@ -1,0 +1,12 @@
+1) open and have an account with cloudinary
+2) https://cloudinary.com/
+3) install the following 
+npm i express cloudinary multer multer-storage-cloudinary 
+4) install dotenv for .env file
+npm i dotenv
+5) install mongoose for mongodb
+npm i mongoose
+
+
+nb: multer 
+( used to configure express to support file upload)
