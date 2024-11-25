@@ -1,5 +1,10 @@
+1) Tut 1
 https://www.youtube.com/watch?v=VGu1vDAWNTg
+2) Tut 2
 https://www.youtube.com/watch?v=SpwzRDUQ1GI
+3) Tut 3
+https://www.youtube.com/watch?v=3mDny9XAgic
+used: introduction.ts
 
 
 NB:
@@ -7,7 +12,7 @@ NB:
 npm install -g typescript
 
 2)  create a tsConfig file
-tsc --init
+   tsc --init
 3) configure the tscConfig.json
     "outDir": "./dist",                // Output directory for compiled files
     "rootDir": "./src"                 // Directory containing source files
